@@ -1,0 +1,31 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{%- extends "base.html" %}
+
+
+{% block content %}
+    <div class="container">
+
+    <div class="col-md-4">
+        {{ wtf.quick_form(form) }}
+    </div>
+
+    {%- if plot %}
+        <div class="col-md-8">
+            <div class="chart" id="bargraph">
+                <script>
+                    var graphs = {{plot | safe}};
+                    Plotly.plot('bargraph', graphs, {});
+                </script>
+            </div>
+        </div>
+    {%- else %}
+        <div class="jumbotron col-md-8">
+            Wypełnij formularz, aby zobaczyć wykres.
+        </div>
+    {%- endif %}
+
+    {{ form.tank_h.data |safe }}
+
+{%- endblock %}
+
