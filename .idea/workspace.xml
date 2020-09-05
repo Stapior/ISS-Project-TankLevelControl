@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ddbf2546-313c-4f4a-99f8-3c24b6c8d399" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/ISS-Project-TankLevelControl.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tank_level_control/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tank_level_control/default_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tank_level_control/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tank_level_control/frontend.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tank_level_control/nav.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tank_level_control/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tank_level_control/static/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tank_level_control/static/html5shiv.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tank_level_control/static/respond.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tank_level_control/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tank_level_control/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tank_level_control/templates/normalPid.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ISS-Project-TankLevelControl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ISS-Project-TankLevelControl.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tank_level_control/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tank_level_control/frontend.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/frontend.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tank_level_control/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
@@ -69,17 +73,103 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tank_level_control" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.flask.configuration.FlaskConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Piotr\Documents\GitHub\ISS-Project-TankLevelControl\tank_level_control" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Piotr\Documents\GitHub\ISS-Project-TankLevelControl" />
     </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.localhost:5000">
+    <configuration name="localhost:5000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Flask (tank_level_control/__init__.py) (1)" type="Python.FlaskServer" nameIsGenerated="true">
+      <module name="ISS-Project-TankLevelControl" />
+      <option name="target" value="$PROJECT_DIR$/tank_level_control/__init__.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flask (tank_level_control/__init__.py)" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
+      <option name="flaskDebug" value="true" />
+      <module name="ISS-Project-TankLevelControl" />
+      <option name="target" value="$PROJECT_DIR$/tank_level_control/__init__.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flask (tank_level_control/runDev.py)" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
+      <module name="ISS-Project-TankLevelControl" />
+      <option name="target" value="$PROJECT_DIR$/tank_level_control/runDev.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="ISS-Project-TankLevelControl" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Users\Piotr\AppData\Local\Programs\Python\Python37-32\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Flask server.Flask (tank_level_control/__init__.py) (1)" />
+      <item itemvalue="Flask server.Flask (tank_level_control/__init__.py)" />
+      <item itemvalue="Flask server.Flask (tank_level_control/runDev.py)" />
+      <item itemvalue="JavaScript Debug.localhost:5000" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.localhost:5000" />
+        <item itemvalue="Flask server.Flask (tank_level_control/__init__.py)" />
+        <item itemvalue="Flask server.Flask (tank_level_control/runDev.py)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -93,8 +183,18 @@
       <option name="presentableId" value="Default" />
       <updated>1599067955021</updated>
       <workItem from="1599070098400" duration="70000" />
-      <workItem from="1599070192106" duration="1088000" />
+      <workItem from="1599070192106" duration="3324000" />
+      <workItem from="1599074117799" duration="1514000" />
+      <workItem from="1599153941041" duration="7159000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1599071616532</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599071616532</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,5 +202,96 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="175" width="1092" height="810" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599073361604">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" width="1092" height="810" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599073361604" />
+    <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599071447823">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599071447823" />
+    <state x="689" y="358" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1599073203349">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="689" y="358" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599073203349" />
+    <state x="562" y="88" key="CommitChangelistDialog2" timestamp="1599071615929">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="562" y="88" key="CommitChangelistDialog2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599071615929" />
+    <state x="740" y="335" key="FileChooserDialogImpl" timestamp="1599073358386">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="335" key="FileChooserDialogImpl/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599073358386" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1599078297695">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599078297695" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1599078297695">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599078297695" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1599078297695">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599078297695" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1599078297695">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599078297695" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1599078297696">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599078297696" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1599078297695">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599078297695" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1599078297695">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599078297695" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1599078297695">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599078297695" />
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1599078297696">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599078297696" />
+    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1599078297696">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599078297696" />
+    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1599078297696">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599078297696" />
+    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1599078297696">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599078297696" />
+    <state x="701" y="222" key="RollbackChangesDialog" timestamp="1599072682429">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="701" y="222" key="RollbackChangesDialog/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599072682429" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1599073109503">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599073109503" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1599071619202">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599071619202" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ISS_Project_TankLevelControl$Flask__tank_level_control_runDev_py_.coverage" NAME="Flask (tank_level_control/runDev.py) Coverage Results" MODIFIED="1599072284281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/ISS_Project_TankLevelControl$Flask__tank_level_control___init___py___1_.coverage" NAME="Flask (tank_level_control/__init__.py) (1) Coverage Results" MODIFIED="1599074169918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/ISS_Project_TankLevelControl$Flask__tank_level_control___init___py_.coverage" NAME="Flask (tank_level_control/__init__.py) Coverage Results" MODIFIED="1599074173773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

@@ -1,6 +1,6 @@
 import json
+import math
 
-import numpy as np
 import pandas as pd
 import plotly
 import plotly.graph_objs as go
@@ -31,19 +31,37 @@ def classic_pid():
 
     if form.validate_on_submit():
         form.hole_r.render_kw = {'disabled': 'disabled'}
-        bar = create_plot()
+        bar = simulate()
         return render_template('normalPid.html', form=form, plot=bar)
 
     return render_template('normalPid.html', form=form)
 
 
-def create_plot():
-    N = 40
-    x = np.linspace(0, 1, N)
-    y = np.random.randn(N)
-    y2 = np.ones(N)
-    df = pd.DataFrame({'x': x, 'y': y})  # creating a sample dataframe
-    df2 = pd.DataFrame({'x': x, 'y': y2})  # creating a sample dataframe
+def simulate():
+    time = 200.0
+    step = 0.01
+    startLevel = 70.0
+    outputFactor = 20.0
+    givenLevel = 50.0
+    surfaceArea = 20.0
+
+    n = math.ceil(time / step)
+    result = [startLevel]
+    inputs = [0]
+    steps = [0]
+    suma = 0
+    for i in range(0, n):
+        currentH = result[len(result) - 1]
+        suma += givenLevel - currentH
+        inputVolume = getInputIntensity(givenLevel, currentH, suma) * step
+        inputs.append(inputVolume / step)
+        outputVolume = outputFactor * math.sqrt(currentH) * step
+        result.append(currentH + ((inputVolume - outputVolume) / surfaceArea))
+
+        steps.append(steps[len(steps) - 1] + step)
+
+    df = pd.DataFrame({'x': steps, 'y': result})  # creating a sample dataframe
+    di = pd.DataFrame({'x': steps, 'y': inputs})  # creating a sample dataframe
     data = [
         go.Scatter(
             x=df['x'],
@@ -52,16 +70,23 @@ def create_plot():
             name='Otrzymana wartość'
         ),
         go.Scatter(
-            x=df2['x'],
-            y=df2['y'],
+            x=di['x'],
+            y=di['y'],
             mode='lines',
-            name='Wartość zadana'
+            name='Otrzymana wartość'
         )
-
     ]
 
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
+
+
+def getInputIntensity(target, current, suma):
+    if current < target:
+        u = target - current
+        return 10 * u + suma
+    else:
+        return 0
 
 
 @frontend.route('/fancy_pid/', methods=('GET', 'POST'))
@@ -69,7 +94,7 @@ def fancy_pid():
     form = NormalPidForm()
 
     if form.validate_on_submit():
-        bar = create_plot()
+        bar = simulate()
         return render_template('normalPid.html', form=form, plot=bar)
 
     return render_template('normalPid.html', form=form)
