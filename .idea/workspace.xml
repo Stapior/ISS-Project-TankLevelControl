@@ -3,14 +3,28 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ddbf2546-313c-4f4a-99f8-3c24b6c8d399" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ISS-Project-TankLevelControl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ISS-Project-TankLevelControl.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="ddbf2546-313c-4f4a-99f8-3c24b6c8d399" name="Default Changelist" comment="udawany PID">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tank_level_control/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tank_level_control/frontend.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/frontend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tank_level_control/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +45,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,12 +57,6 @@
     <auto-save>true</auto-save>
   </component>
   <component name="JupyterTrust" id="2af7beba-64d8-47f9-9f47-6f98af75ee85" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
-  </component>
   <component name="ProjectId" id="1gxxYQEOQUXQuIxydn7uZ3MB9cD" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -186,6 +194,8 @@
       <workItem from="1599070192106" duration="3324000" />
       <workItem from="1599074117799" duration="1514000" />
       <workItem from="1599153941041" duration="7159000" />
+      <workItem from="1599306639197" duration="657000" />
+      <workItem from="1599317170891" duration="620000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1599071616532</created>
@@ -194,18 +204,38 @@
       <option name="project" value="LOCAL" />
       <updated>1599071616532</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="udawany PID">
+      <created>1599306683980</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599306683980</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="udawany PID" />
+    <option name="LAST_COMMIT_MESSAGE" value="udawany PID" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" width="1092" height="810" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599073361604">
@@ -220,10 +250,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="358" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599073203349" />
-    <state x="562" y="88" key="CommitChangelistDialog2" timestamp="1599071615929">
+    <state x="562" y="88" key="CommitChangelistDialog2" timestamp="1599306662001">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="562" y="88" key="CommitChangelistDialog2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599071615929" />
+    <state x="562" y="88" key="CommitChangelistDialog2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599306662001" />
     <state x="740" y="335" key="FileChooserDialogImpl" timestamp="1599073358386">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -284,10 +314,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599073109503" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1599071619202">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1599306693903">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599071619202" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599306693903" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ISS_Project_TankLevelControl$Flask__tank_level_control_runDev_py_.coverage" NAME="Flask (tank_level_control/runDev.py) Coverage Results" MODIFIED="1599072284281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

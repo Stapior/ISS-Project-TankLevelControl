@@ -38,30 +38,32 @@ def classic_pid():
 
 
 def simulate():
-    time = 200.0
-    step = 0.01
+    time = 200.0  #{ czas symulacji
+    step = 0.01  # czzas jednego kroku
     startLevel = 70.0
-    outputFactor = 20.0
-    givenLevel = 50.0
-    surfaceArea = 20.0
+    outputFactor = 20.0 # współczynnik wypływu, czyli ile wody wylatuje w 1 jednostce czasu przy wysokosci wody = 1
+                        # współczynnik ten zależny jest od lepkosci cieczy, powierzchni otworu oraz jakiegos wspolczynnika zaworu
+    givenLevel = 50.0 # zadany poziom wody (do tego dązymy w czasie regulacji)
+    surfaceArea = 20.0   # pole powierzchni spodu zbiornika
+                         # } te wartośi mogą być konfigurowalne, np z tego formularza który sie wyswietla na stronie
 
-    n = math.ceil(time / step)
-    result = [startLevel]
-    inputs = [0]
-    steps = [0]
-    suma = 0
+    n = math.ceil(time / step) # liczba kroków w symulacji
+    result = [startLevel] # lista zawierająca poziomy wody w poszczególnych krokach symualcji
+    inputs = [0] # wartości sterowania w czasie symulacji, czyli objętośc cieczy jaka ma wpływac do zbiornika, to wtylicza algorytm steroania np PID
+    steps = [0] # wartości czasu dla każdego kroku (tylko do wykresu potrzebne)
+    suma = 0 # suma uchybów dla PID
     for i in range(0, n):
-        currentH = result[len(result) - 1]
+        currentH = result[len(result) - 1] # aktualna wysokosc cieczy (wyliczona z poprzedniego korku)
         suma += givenLevel - currentH
-        inputVolume = getInputIntensity(givenLevel, currentH, suma) * step
+        inputVolume = getInputIntensity(givenLevel, currentH, suma) * step # ilość wody jaka dolewa się do zbiornika w czasie danego kroku
         inputs.append(inputVolume / step)
-        outputVolume = outputFactor * math.sqrt(currentH) * step
+        outputVolume = outputFactor * math.sqrt(currentH) * step # ilośc wody jaka wylała sie ze zbiornika w czasie tego kroku (zależna od pierwiastka z wysokosci wody w zbiorniku)
         result.append(currentH + ((inputVolume - outputVolume) / surfaceArea))
 
         steps.append(steps[len(steps) - 1] + step)
 
-    df = pd.DataFrame({'x': steps, 'y': result})  # creating a sample dataframe
-    di = pd.DataFrame({'x': steps, 'y': inputs})  # creating a sample dataframe
+    df = pd.DataFrame({'x': steps, 'y': result})  # Wyświetlenie wykresu
+    di = pd.DataFrame({'x': steps, 'y': inputs})  #
     data = [
         go.Scatter(
             x=df['x'],
@@ -81,7 +83,7 @@ def simulate():
     return graphJSON
 
 
-def getInputIntensity(target, current, suma):
+def getInputIntensity(target, current, suma): # algorytm wyliczający wartość sterowania (ilośc wływającej wody w jednostce czasu)
     if current < target:
         u = target - current
         return 10 * u + suma
