@@ -5,11 +5,9 @@
 
 {% block content %}
     <div class="container">
-
     <div class="col-md-4">
         {{ wtf.quick_form(form) }}
     </div>
-
     {%- if plot %}
         <div class="col-md-8">
             <div class="chart" id="bargraph">
@@ -24,8 +22,5 @@
             Wypełnij formularz, aby zobaczyć wykres.
         </div>
     {%- endif %}
-
-    {{ form.tank_h.data |safe }}
-
 {%- endblock %}
 

@@ -7,6 +7,7 @@ import plotly.graph_objs as go
 from flask import Blueprint, render_template
 from flask_nav.elements import Navbar, View
 
+from .PID import PID
 from .forms import NormalPidForm
 from .nav import nav
 
@@ -21,8 +22,7 @@ nav.register_element('frontend_top', Navbar(
 
 @frontend.route('/')
 def index():
-    bar = create_plot()
-    return render_template('index.html', plot=bar)
+    return render_template('index.html')
 
 
 @frontend.route('/classic_pid/', methods=('GET', 'POST'))
@@ -30,63 +30,56 @@ def classic_pid():
     form = NormalPidForm()
 
     if form.validate_on_submit():
-        form.hole_r.render_kw = {'disabled': 'disabled'}
-        bar = simulate()
+        area = math.pow(form.tank_r.data, 2) * math.pi
+        bar = simulate(form.time.data, form.step.data, form.start_level.data, form.given_level.data, area,
+                       form.outputFactor.data)
         return render_template('normalPid.html', form=form, plot=bar)
 
     return render_template('normalPid.html', form=form)
 
 
-def simulate():
-    time = 200.0
-    step = 0.01
-    startLevel = 70.0
-    outputFactor = 20.0
-    givenLevel = 50.0
-    surfaceArea = 20.0
-
+def simulate(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float , outputFactor: float):
     n = math.ceil(time / step)
-    result = [startLevel]
-    inputs = [0]
+    results = [startLevel]
+    inputs = [0.0]
     steps = [0]
-    suma = 0
-    for i in range(0, n):
-        currentH = result[len(result) - 1]
-        suma += givenLevel - currentH
-        inputVolume = getInputIntensity(givenLevel, currentH, suma) * step
-        inputs.append(inputVolume / step)
+
+    pid = PID(100.0, 0.0, 0.0)
+    pid.setPoint(givenLevel)
+
+    for i in range(1, n):
+        currentH = results[i-1]
+        inputIntensity = max(pid.update(currentH), 0.0)
+        inputVolume = inputIntensity * step
         outputVolume = outputFactor * math.sqrt(currentH) * step
-        result.append(currentH + ((inputVolume - outputVolume) / surfaceArea))
+        heightChange = ((inputVolume - outputVolume) / surfaceArea)
 
-        steps.append(steps[len(steps) - 1] + step)
+        inputs.append(inputIntensity)
+        results.append(currentH + heightChange)
+        steps.append(i * step)
 
-    df = pd.DataFrame({'x': steps, 'y': result})  # creating a sample dataframe
-    di = pd.DataFrame({'x': steps, 'y': inputs})  # creating a sample dataframe
+    return getGraph(inputs, results, steps)
+
+
+def getGraph(inputs, results, steps):
+    df = pd.DataFrame({'x': steps, 'y': results})
+    di = pd.DataFrame({'x': steps, 'y': inputs})
     data = [
         go.Scatter(
             x=df['x'],
             y=df['y'],
             mode='lines',
-            name='Otrzymana wartość'
+            name='Otrzymane wartości'
         ),
         go.Scatter(
             x=di['x'],
             y=di['y'],
             mode='lines',
-            name='Otrzymana wartość'
+            name='Wartość zmiennej sterującej'
         )
     ]
-
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
-
-
-def getInputIntensity(target, current, suma):
-    if current < target:
-        u = target - current
-        return 10 * u + suma
-    else:
-        return 0
 
 
 @frontend.route('/fancy_pid/', methods=('GET', 'POST'))
@@ -94,7 +87,6 @@ def fancy_pid():
     form = NormalPidForm()
 
     if form.validate_on_submit():
-        bar = simulate()
-        return render_template('normalPid.html', form=form, plot=bar)
+        return render_template('normalPid.html', form=form)
 
     return render_template('normalPid.html', form=form)
