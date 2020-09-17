@@ -22,13 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ddbf2546-313c-4f4a-99f8-3c24b6c8d399" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tank_level_control/PID.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="ddbf2546-313c-4f4a-99f8-3c24b6c8d399" name="Default Changelist" comment="Poprawki i refaktor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tank_level_control/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tank_level_control/frontend.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/frontend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tank_level_control/templates/normalPid.html" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/templates/normalPid.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,15 +173,14 @@
     </configuration>
     <list>
       <item itemvalue="Flask server.Flask (tank_level_control/__init__.py) (1)" />
+      <item itemvalue="Flask server.Flask" />
       <item itemvalue="Flask server.Flask (tank_level_control/__init__.py)" />
-      <item itemvalue="Flask server.Flask (tank_level_control/runDev.py)" />
       <item itemvalue="JavaScript Debug.localhost:5000" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.localhost:5000" />
         <item itemvalue="Flask server.Flask (tank_level_control/__init__.py)" />
-        <item itemvalue="Flask server.Flask (tank_level_control/runDev.py)" />
       </list>
     </recent_temporary>
   </component>
@@ -203,7 +199,8 @@
       <workItem from="1599070192106" duration="3324000" />
       <workItem from="1599074117799" duration="1514000" />
       <workItem from="1599153941041" duration="7159000" />
-      <workItem from="1600281089679" duration="5475000" />
+      <workItem from="1600281089679" duration="8078000" />
+      <workItem from="1600322688769" duration="194000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1599071616532</created>
@@ -212,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599071616532</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Poprawki i refaktor">
+      <created>1600287827896</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1600287827896</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +236,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Poprawki i refaktor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poprawki i refaktor" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="198" key="#Inspections" timestamp="1600281338253">
@@ -327,6 +332,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1600281133774" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tank_level_control/frontend.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ISS_Project_TankLevelControl$Flask__tank_level_control_runDev_py_.coverage" NAME="Flask (tank_level_control/runDev.py) Coverage Results" MODIFIED="1599072284281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

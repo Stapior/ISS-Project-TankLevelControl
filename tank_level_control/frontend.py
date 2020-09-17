@@ -38,17 +38,18 @@ def classic_pid():
     return render_template('normalPid.html', form=form)
 
 
-def simulate(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float , outputFactor: float):
+def simulate(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float, outputFactor: float,
+             Kp: float, Ki: float, Kd: float):
     n = math.ceil(time / step)
     results = [startLevel]
     inputs = [0.0]
     steps = [0]
 
-    pid = PID(100.0, 0.0, 0.0)
+    pid = PID(Kp, Ki, Kd)
     pid.setPoint(givenLevel)
 
     for i in range(1, n):
-        currentH = results[i-1]
+        currentH = results[i - 1]
         inputIntensity = max(pid.update(currentH), 0.0)
         inputVolume = inputIntensity * step
         outputVolume = outputFactor * math.sqrt(currentH) * step
