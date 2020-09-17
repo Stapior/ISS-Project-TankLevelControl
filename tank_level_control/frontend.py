@@ -32,7 +32,7 @@ def classic_pid():
     if form.validate_on_submit():
         area = math.pow(form.tank_r.data, 2) * math.pi
         bar = simulate(form.time.data, form.step.data, form.start_level.data, form.given_level.data, area,
-                       form.outputFactor.data)
+                       form.outputFactor.data, form.Kp.data, form.Ki.data, form.Kd.data)
         return render_template('normalPid.html', form=form, plot=bar)
 
     return render_template('normalPid.html', form=form)
@@ -55,16 +55,16 @@ def simulate(time: float, step: float, startLevel: float, givenLevel: float, sur
         outputVolume = outputFactor * math.sqrt(currentH) * step
         heightChange = ((inputVolume - outputVolume) / surfaceArea)
 
-        inputs.append(inputIntensity)
+       # inputs.append(inputIntensity)
         results.append(currentH + heightChange)
         steps.append(i * step)
 
-    return getGraph(inputs, results, steps)
+    return getGraph(givenLevel, results, steps)
 
 
-def getGraph(inputs, results, steps):
+def getGraph(givenLevel, results, steps):
     df = pd.DataFrame({'x': steps, 'y': results})
-    di = pd.DataFrame({'x': steps, 'y': inputs})
+    di = pd.DataFrame({'x': steps, 'y': givenLevel})
     data = [
         go.Scatter(
             x=df['x'],
@@ -76,7 +76,7 @@ def getGraph(inputs, results, steps):
             x=di['x'],
             y=di['y'],
             mode='lines',
-            name='Wartość zmiennej sterującej'
+            name='Wartość zadana'
         )
     ]
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)

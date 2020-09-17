@@ -8,8 +8,8 @@ class NormalPidForm(FlaskForm):
     given_level = FloatField(u'Zadany poziom cieczy', validators=[DataRequired(), NumberRange(0)], default=50)
     tank_r = FloatField(u'Promień zbiornika', validators=[DataRequired(), NumberRange(0)], default=50)
     start_level = FloatField(u'Początkowy poziom cieczy', validators=[DataRequired(), NumberRange(0)],
-                               default=50)
-    time = FloatField(u'Czas symulacji', validators=[DataRequired(), NumberRange(0)], default=50)
+                               default=10)
+    time = FloatField(u'Czas symulacji', validators=[DataRequired(), NumberRange(0)], default=1000)
     step = FloatField(u'Rozdzielczość symulacji', validators=[DataRequired(), NumberRange(0)], default=0.1)
     outputFactor = FloatField(
         u'Współczynnik wypływu cieczy',
