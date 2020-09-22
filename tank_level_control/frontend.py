@@ -31,9 +31,10 @@ def classic_pid():
 
     if form.validate_on_submit():
         area = math.pow(form.tank_r.data, 2) * math.pi
-        bar = simulate(form.time.data, form.step.data, form.start_level.data, form.given_level.data, area,
-                       form.outputFactor.data, form.Kp.data, form.Ki.data, form.Kd.data)
-        return render_template('normalPid.html', form=form, plot=bar)
+        (bar, errorAbsSum) = simulate(form.time.data, form.step.data, form.start_level.data, form.given_level.data,
+                                      area,
+                                      form.outputFactor.data, form.Kp.data, form.Ki.data, form.Kd.data)
+        return render_template('normalPid.html', form=form, plot=bar, errorAbsSum=errorAbsSum)
 
     return render_template('normalPid.html', form=form)
 
@@ -47,36 +48,49 @@ def simulate(time: float, step: float, startLevel: float, givenLevel: float, sur
 
     pid = PID(Kp, Ki, Kd)
     pid.setPoint(givenLevel)
+    errorAbsSum = 0
 
     for i in range(1, n):
         currentH = results[i - 1]
-        inputIntensity = max(pid.update(currentH), 0.0)
+
+        inputIntensity = max(pid.update(currentH, i * step), 0)
+        errorAbsSum += abs(givenLevel - currentH) * step
+
         inputVolume = inputIntensity * step
         outputVolume = outputFactor * math.sqrt(currentH) * step
-        heightChange = ((inputVolume - outputVolume) / surfaceArea)
+        heightChange = (inputVolume - outputVolume)
 
-       # inputs.append(inputIntensity)
-        results.append(currentH + heightChange)
+        inputs.append(inputIntensity)
+        results.append(max(currentH + heightChange, 0))
         steps.append(i * step)
 
-    return getGraph(givenLevel, results, steps)
+    return getGraph(givenLevel, results, steps, inputs), errorAbsSum
 
 
-def getGraph(givenLevel, results, steps):
-    df = pd.DataFrame({'x': steps, 'y': results})
-    di = pd.DataFrame({'x': steps, 'y': givenLevel})
+def getGraph(givenLevel, results, steps, inputs):
+    df_results = pd.DataFrame({'x': steps, 'y': results})
+    df_point = pd.DataFrame({'x': steps, 'y': givenLevel})
+    df_inputs = pd.DataFrame({'x': steps, 'y': inputs})
     data = [
         go.Scatter(
-            x=df['x'],
-            y=df['y'],
+            x=df_results['x'],
+            y=df_results['y'],
             mode='lines',
             name='Otrzymane wartości'
         ),
         go.Scatter(
-            x=di['x'],
-            y=di['y'],
+            x=df_point['x'],
+            y=df_point['y'],
             mode='lines',
             name='Wartość zadana'
+        ),
+        go.Scatter(
+            x=df_inputs['x'],
+            y=df_inputs['y'],
+            mode='lines',
+            name='Wartości sterowania',
+            visible=False,
+            showlegend=True
         )
     ]
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)

@@ -13,10 +13,10 @@ class NormalPidForm(FlaskForm):
     step = FloatField(u'Rozdzielczość symulacji', validators=[DataRequired(), NumberRange(0)], default=0.1)
     outputFactor = FloatField(
         u'Współczynnik wypływu cieczy',
-        validators=[DataRequired(), NumberRange(0)], default=20,
-        description='Objetość cieczy wylatującej w 1s przy wysokosci słupa cieczy 1')
-    Kp = FloatField(u'Kp', validators=[DataRequired(), NumberRange(0)], default=100)
-    Ki = FloatField(u'Ki', validators=[DataRequired(), NumberRange(0)], default=2)
-    Kd = FloatField(u'Kd', validators=[DataRequired(), NumberRange(0)], default=1)
+        validators=[DataRequired(), NumberRange(0)], default=80,
+        description='Objętość cieczy wylatującej w 1s przy wysokości słupa cieczy 1')
+    Kp = FloatField(u'Kp', validators=[], default=1000)
+    Ki = FloatField(u'Ki', validators=[], default=2)
+    Kd = FloatField(u'Kd', validators=[], default=1)
 
     submit = SubmitField(u'Wprowadź dane')

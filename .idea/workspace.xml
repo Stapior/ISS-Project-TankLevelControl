@@ -24,8 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ddbf2546-313c-4f4a-99f8-3c24b6c8d399" name="Default Changelist" comment="Poprawki i refaktor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tank_level_control/PID.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/PID.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tank_level_control/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tank_level_control/frontend.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/frontend.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tank_level_control/templates/normalPid.html" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/templates/normalPid.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,12 +60,6 @@
     <auto-save>true</auto-save>
   </component>
   <component name="JupyterTrust" id="2af7beba-64d8-47f9-9f47-6f98af75ee85" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
-  </component>
   <component name="ProjectId" id="1gxxYQEOQUXQuIxydn7uZ3MB9cD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -114,6 +110,21 @@
     </configuration>
     <configuration name="Flask (tank_level_control/__init__.py)" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
       <option name="flaskDebug" value="true" />
+      <module name="ISS-Project-TankLevelControl" />
+      <option name="target" value="$PROJECT_DIR$/tank_level_control/__init__.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flask (tank_level_control/__init__.py)" type="Python.FlaskServer" nameIsGenerated="true">
       <module name="ISS-Project-TankLevelControl" />
       <option name="target" value="$PROJECT_DIR$/tank_level_control/__init__.py" />
       <option name="targetType" value="PATH" />
@@ -201,6 +212,9 @@
       <workItem from="1599153941041" duration="7159000" />
       <workItem from="1600281089679" duration="8078000" />
       <workItem from="1600322688769" duration="194000" />
+      <workItem from="1600456674668" duration="640000" />
+      <workItem from="1600712885943" duration="10467000" />
+      <workItem from="1600752367837" duration="95000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1599071616532</created>
@@ -260,6 +274,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="562" y="88" key="CommitChangelistDialog2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599071615929" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1600457714321">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1600457714321" />
     <state x="740" y="335" key="FileChooserDialogImpl" timestamp="1599073358386">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -328,21 +346,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599071619202" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600281133774">
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600713528267">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1600281133774" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tank_level_control/frontend.py</url>
-          <line>40</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1600713528267" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1600456687691" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1600714989023">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1600714989023" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ISS_Project_TankLevelControl$Flask__tank_level_control_runDev_py_.coverage" NAME="Flask (tank_level_control/runDev.py) Coverage Results" MODIFIED="1599072284281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
