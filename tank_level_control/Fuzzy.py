@@ -5,7 +5,7 @@ import skfuzzy.control as ctrl
 class Fuzzy:
 
     def __init__(self):
-        output_universe = np.linspace(0, 100, 9)
+        output_universe = np.linspace(0, 1000, 9)
         universe = np.linspace(-10, 10, 7)
         self.error = ctrl.Antecedent(universe, 'error')
         self.delta = ctrl.Antecedent(universe, 'delta')
@@ -24,11 +24,11 @@ class Fuzzy:
                  ctrl.Rule(antecedent=((error['DU'] & delta['MU'])), consequent=output['BDU']),
                  ctrl.Rule(antecedent=((error['SU'] & delta['DU'])), consequent=output['BDU']),
                  ctrl.Rule(antecedent=((error['SU'] & delta['SU'])), consequent=output['BDU']),
-                 ctrl.Rule(antecedent=((error['MU'] & delta['SU'])), consequent=output['BDU']),
-                 ctrl.Rule(antecedent=((error['DU'] & delta['Z'])), consequent=output['BDU']),
+                 ctrl.Rule(antecedent=((error['MU'] & delta['DU'])), consequent=output['BDU']),
+                 ctrl.Rule(antecedent=((error['DU'] & delta['Z'])), consequent=output['DU']),
                  ctrl.Rule(antecedent=((error['SU'] & delta['MU'])), consequent=output['DU']),
                  ctrl.Rule(antecedent=((error['MU'] & delta['SU'])), consequent=output['DU']),
-                 ctrl.Rule(antecedent=((error['Z'] & delta['SU'])), consequent=output['DU']),
+                 ctrl.Rule(antecedent=((error['Z'] & delta['DU'])), consequent=output['DU']),
                  ctrl.Rule(antecedent=((error['DU'] & delta['MD'])), consequent=output['SU']),
                  ctrl.Rule(antecedent=((error['SU'] & delta['Z'])), consequent=output['SU']),
                  ctrl.Rule(antecedent=((error['MU'] & delta['MU'])), consequent=output['SU']),

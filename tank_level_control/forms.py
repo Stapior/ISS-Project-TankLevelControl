@@ -44,7 +44,7 @@ class FuzzyController(FlaskForm):
     tank_area = FloatField(u'Pole podstawy zbiornika', validators=[DataRequired(), NumberRange(0)], default=50)
     start_level = FloatField(u'Początkowy poziom cieczy', validators=[DataRequired(), NumberRange(0)],
                              default=10)
-    time = FloatField(u'Czas symulacji', validators=[DataRequired(), NumberRange(0)], default=1000)
+    time = FloatField(u'Czas symulacji', validators=[DataRequired(), NumberRange(0)], default=100)
     step = FloatField(u'Rozdzielczość symulacji', validators=[DataRequired(), NumberRange(0)], default=0.1)
     outputFactor = FloatField(
         u'Współczynnik wypływu cieczy',

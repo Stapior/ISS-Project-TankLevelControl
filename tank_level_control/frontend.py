@@ -108,7 +108,7 @@ def simulateFuzzyPid(time: float, step: float, startLevel: float, givenLevel: fl
         currentH = results[i - 1]
 
         error = givenLevel - currentH
-        inputIntensity = - fuzzy.update(error)
+        inputIntensity = fuzzy.update(error)
 
         inputVolume = inputIntensity * step
         outputVolume = outputFactor * math.sqrt(currentH) * step
@@ -143,7 +143,7 @@ def getGraph(givenLevel, results, steps, inputs):
             y=df_inputs['y'],
             mode='lines',
             name='Wartości sterowania',
-            # visible=False,
+            visible=False,
             showlegend=True
         )
     ]
