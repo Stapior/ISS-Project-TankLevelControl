@@ -58,7 +58,7 @@ def simulate(time: float, step: float, startLevel: float, givenLevel: float, sur
 
         inputVolume = inputIntensity * step
         outputVolume = outputFactor * math.sqrt(currentH) * step
-        heightChange = (inputVolume - outputVolume)
+        heightChange = (inputVolume - outputVolume)/ surfaceArea
 
         inputs.append(inputIntensity)
         results.append(max(currentH + heightChange, 0))
