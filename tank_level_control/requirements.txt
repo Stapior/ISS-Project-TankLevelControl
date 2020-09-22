@@ -5,4 +5,4 @@ flask-debug
 flask-wtf
 wtforms
 email_validator
-
+scikit-fuzzy
