@@ -1,6 +1,6 @@
 class PID:
 
-    def __init__(self, p=2.0, i=0.0, d=1.0, integrator_max=500, integrator_min=-500):
+    def __init__(self, p=2.0, i=1.0, d=1.0, integrator_max=500, integrator_min=-500):
         self.Kp = p
         self.Ki = i
         self.Kd = d

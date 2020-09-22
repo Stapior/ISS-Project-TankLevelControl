@@ -1,12 +1,12 @@
 import json
 import math
-
 import pandas as pd
 import plotly
 import plotly.graph_objs as go
 from flask import Blueprint, render_template
 from flask_nav.elements import Navbar, View
 
+from .Fuzzy import Fuzzy
 from .PID import PID
 from .forms import NormalPidForm
 from .nav import nav
@@ -39,13 +39,14 @@ def classic_pid():
     return render_template('normalPid.html', form=form)
 
 
+
+
 def simulate(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float, outputFactor: float,
              Kp: float, Ki: float, Kd: float):
     n = math.ceil(time / step)
     results = [startLevel]
     inputs = [0.0]
     steps = [0]
-
     pid = PID(Kp, Ki, Kd)
     pid.setPoint(givenLevel)
     errorAbsSum = 0
