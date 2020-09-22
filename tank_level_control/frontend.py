@@ -38,6 +38,7 @@ def classic_pid():
 
     return render_template('normalPid.html', form=form)
 
+
 def simulate(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float, outputFactor: float,
              Kp: float, Ki: float, Kd: float):
     n = math.ceil(time / step)
