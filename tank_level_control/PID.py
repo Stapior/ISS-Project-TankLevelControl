@@ -1,41 +1,49 @@
+import math
 class PID:
+    """
+    Discrete PID control
+    """
 
-    def __init__(self, p=2.0, i=0.0, d=1.0, integrator_max=500, integrator_min=-500):
-        self.Kp = p
-        self.Ki = i
-        self.Kd = d
-        self.Integrator_max = integrator_max
-        self.Integrator_min = integrator_min
+    def __init__(self, P=2.0, I=0.0, D=1.0):
+        self.Kp = P
+        self.Ki = I
+        self.Kd = D
 
-        self.last_time = 0
-        self.last_error = 0
+        self.Derivator = 0
         self.Integrator = 0
+        self.Integrator_max = 500
+        self.Integrator_min = -500
         self.set_point = 0.0
+        self.error = 0.0
 
-    def update(self, current_value, time):
+    def update(self, current_value):
 
-        error = self.set_point - current_value
-        duration = time - self.last_time
+        self.error = self.set_point - current_value
 
-        self.Integrator = self.Integrator + error * duration
-        self.trim_integrator()
+        self.P_value = self.Kp * self.error
+        self.D_value = self.Kd * (self.error - self.Derivator)
+        self.Derivator = self.error
 
-        P_value = self.Kp * error
+        self.Integrator = self.Integrator + self.error
 
-        I_value = self.Integrator * self.Ki
-        D_value = self.Kd * (error - self.last_error) / duration
+        self.Integrator = abs(self.Integrator)
+       # self.Integrator = math.pow(self.Integrator,2)
 
-        self.last_error = error
-
-        return P_value + I_value + D_value
-
-    def trim_integrator(self):
         if self.Integrator > self.Integrator_max:
             self.Integrator = self.Integrator_max
         elif self.Integrator < self.Integrator_min:
             self.Integrator = self.Integrator_min
 
-    def setPoint(self, point):
-        self.set_point = point
+        self.I_value = self.Integrator * self.Ki
+
+        return self.P_value + self.I_value + self.D_value
+
+    def setPoint(self, set_point):
+        """
+        Initilize the setpoint of PID
+        """
+        self.set_point = set_point
         self.Integrator = 0
-        self.last_error = 0
+        self.Derivator = 0
+
+
