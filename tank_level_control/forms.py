@@ -14,9 +14,9 @@ class NormalPidForm(FlaskForm):
         u'Współczynnik wypływu cieczy',
         validators=[DataRequired(), NumberRange(0)], default=80,
         description='Objętość cieczy wylatującej w 1s przy wysokości słupa cieczy 1')
-    Kp = FloatField(u'Kp', validators=[], default=1000)
-    Ki = FloatField(u'Ki', validators=[], default=2)
-    Kd = FloatField(u'Kd', validators=[], default=1)
+    Kp = FloatField(u'Kp', validators=[], default=21000)
+    Ki = FloatField(u'Ki', validators=[], default=0.8)
+    Kd = FloatField(u'Kd', validators=[], default=0.2)
 
     submit = SubmitField(u'Wprowadź dane')
 

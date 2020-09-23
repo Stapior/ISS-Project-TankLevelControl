@@ -1,6 +1,7 @@
 import json
 import math
 
+import numpy as np
 import pandas as pd
 import plotly
 import plotly.graph_objs as go
@@ -32,16 +33,16 @@ def classic_pid():
     form = NormalPidForm()
 
     if form.validate_on_submit():
-        (bar, errorAbsSum) = simulate(form.time.data, form.step.data, form.start_level.data, form.given_level.data,
-                                      form.tank_area.data, form.outputFactor.data, form.Kp.data, form.Ki.data,
-                                      form.Kd.data)
+        (bar, errorAbsSum) = simulatePid(form.time.data, form.step.data, form.start_level.data, form.given_level.data,
+                                         form.tank_area.data, form.outputFactor.data, form.Kp.data, form.Ki.data,
+                                         form.Kd.data)
         return render_template('normalPid.html', form=form, plot=bar, errorAbsSum=errorAbsSum)
 
     return render_template('normalPid.html', form=form)
 
 
-def simulate(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float, outputFactor: float,
-             Kp: float, Ki: float, Kd: float):
+def simulatePid(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float, outputFactor: float,
+                Kp: float, Ki: float, Kd: float):
     n = math.ceil(time / step)
     results = [startLevel]
     inputs = [0.0]
@@ -49,18 +50,25 @@ def simulate(time: float, step: float, startLevel: float, givenLevel: float, sur
     pid = PID(Kp, Ki, Kd)
     pid.setPoint(givenLevel)
     errorAbsSum = 0
+    last_intensity = 0
+    maxIntensity = outputFactor * math.sqrt(givenLevel) * 50
+    maxChangeForSecond = 0.05 * maxIntensity
+    print(maxIntensity)
 
     for i in range(1, n):
         currentH = results[i - 1]
 
-        inputIntensity = max(pid.update(currentH, i * step), 0)
-        errorAbsSum += abs(givenLevel - currentH) * step
+        error = givenLevel - currentH
+        errorAbsSum += abs(error) * step
+        target_intensity = max(pid.update(currentH, i * step), 0)
 
-        inputVolume = inputIntensity * step
+        last_intensity = getInputIntensity(last_intensity, target_intensity, maxChangeForSecond, maxIntensity, step)
+        inputVolume = last_intensity * step
+
         outputVolume = outputFactor * math.sqrt(currentH) * step
         heightChange = (inputVolume - outputVolume) / surfaceArea
 
-        inputs.append(inputIntensity)
+        inputs.append(last_intensity)
         results.append(max(currentH + heightChange, 0))
         steps.append(i * step)
 
@@ -95,6 +103,16 @@ def simulateQulityPid(time: float, step: float, startLevel: float, givenLevel: f
     return getGraph(givenLevel, results, steps, inputs), errorAbsSum
 
 
+def getInputIntensity(last_intensity, target_intensity, maxChangeForSecond, max_intensity, step):
+    change = target_intensity - last_intensity
+    if maxChangeForSecond * step < abs(change):
+        intensity = last_intensity + (np.sign(change) * (maxChangeForSecond * step))
+    else:
+        intensity = target_intensity
+
+    return max(min(max_intensity, intensity),0)
+
+
 def simulateFuzzyPid(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float,
                      outputFactor: float):
     n = math.ceil(time / step)
@@ -103,18 +121,25 @@ def simulateFuzzyPid(time: float, step: float, startLevel: float, givenLevel: fl
     steps = [0]
     fuzzy = Fuzzy()
     errorAbsSum = 0
+    last_intensity = 0
+    maxIntensity = outputFactor * math.sqrt(givenLevel) * 3
+    maxChangeForSecond =0.2 * maxIntensity
+    print(maxIntensity)
 
     for i in range(1, n):
         currentH = results[i - 1]
 
         error = givenLevel - currentH
-        inputIntensity = fuzzy.update(error)
+        errorAbsSum += abs(error) * step
+        target_intensity = (fuzzy.update(error, step) / 100.) * maxIntensity
 
-        inputVolume = inputIntensity * step
+        last_intensity = getInputIntensity(last_intensity, target_intensity, maxChangeForSecond, maxIntensity, step)
+        inputVolume = last_intensity * step
+
         outputVolume = outputFactor * math.sqrt(currentH) * step
         heightChange = (inputVolume - outputVolume) / surfaceArea
 
-        inputs.append(inputIntensity)
+        inputs.append(last_intensity/maxIntensity*100)
         results.append(max(currentH + heightChange, 0))
         steps.append(i * step)
 
@@ -143,7 +168,7 @@ def getGraph(givenLevel, results, steps, inputs):
             y=df_inputs['y'],
             mode='lines',
             name='Wartości sterowania',
-            visible=False,
+            # visible=False,
             showlegend=True
         )
     ]

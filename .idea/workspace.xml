@@ -23,15 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddbf2546-313c-4f4a-99f8-3c24b6c8d399" name="Default Changelist" comment="Dodanie dzielenia przez powierzchnie">
-      <change afterPath="$PROJECT_DIR$/tank_level_control/templates/fuzzyPid.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tank_level_control/templates/pidQualityMeasure.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tank_level_control/Fuzzy.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/Fuzzy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tank_level_control/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tank_level_control/frontend.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/frontend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tank_level_control/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tank_level_control/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,8 +89,30 @@
       <recent name="C:\Users\Piotr\Documents\GitHub\ISS-Project-TankLevelControl" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.localhost:5000">
+  <component name="RunManager" selected="Python.Fuzzy">
     <configuration name="localhost:5000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Fuzzy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ISS-Project-TankLevelControl" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tank_level_control" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tank_level_control/Fuzzy.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <configuration name="Flask (tank_level_control/__init__.py) (1)" type="Python.FlaskServer" nameIsGenerated="true">
@@ -115,6 +132,21 @@
     </configuration>
     <configuration name="Flask (tank_level_control/__init__.py)" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
       <option name="flaskDebug" value="true" />
+      <module name="ISS-Project-TankLevelControl" />
+      <option name="target" value="$PROJECT_DIR$/tank_level_control/__init__.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flask (tank_level_control/__init__.py)" type="Python.FlaskServer" nameIsGenerated="true">
       <module name="ISS-Project-TankLevelControl" />
       <option name="target" value="$PROJECT_DIR$/tank_level_control/__init__.py" />
       <option name="targetType" value="PATH" />
@@ -207,9 +239,11 @@
       <item itemvalue="Flask server.Flask" />
       <item itemvalue="Flask server.Flask (tank_level_control/__init__.py)" />
       <item itemvalue="JavaScript Debug.localhost:5000" />
+      <item itemvalue="Python.Fuzzy" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Fuzzy" />
         <item itemvalue="JavaScript Debug.localhost:5000" />
         <item itemvalue="Flask server.Flask (tank_level_control/__init__.py)" />
       </list>
@@ -236,6 +270,7 @@
       <workItem from="1600712885943" duration="10467000" />
       <workItem from="1600752367837" duration="236000" />
       <workItem from="1600787132015" duration="5050000" />
+      <workItem from="1600873077920" duration="15369000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1599071616532</created>
@@ -393,20 +428,20 @@
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599071619202" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1600767591343" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600787664684">
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600873788111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1600281133774" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1600787664684" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1600873788111" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1600456687691" />
     <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1600788415962">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1600788415962" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1600714989023">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1600877119711">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1600714989023" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1600877119711" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ISS_Project_TankLevelControl$Flask__tank_level_control_runDev_py_.coverage" NAME="Flask (tank_level_control/runDev.py) Coverage Results" MODIFIED="1599072284281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
