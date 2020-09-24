@@ -75,9 +75,35 @@ def simulatePid(time: float, step: float, startLevel: float, givenLevel: float, 
     return getGraph(givenLevel, results, steps, inputs), errorAbsSum
 
 
+def getInputIntensity(last_intensity, target_intensity, maxChangeForSecond, max_intensity, step):
+    change = target_intensity - last_intensity
+    if maxChangeForSecond * step < abs(change):
+        intensity = last_intensity + (np.sign(change) * (maxChangeForSecond * step))
+    else:
+        intensity = target_intensity
+
+    return max(min(max_intensity, intensity),0)
+
+
+@frontend.route('/quality_pid/', methods=('GET', 'POST'))
+def quality_pid():
+    form = QualityOptimizationPid()
+
+
+    if form.validate_on_submit():
+
+        (bar, errorAbsSum) = simulateQulityPid(form.time.data, form.step.data, form.start_level.data,
+                                               form.given_level.data,
+                                               form.tank_area.data, form.outputFactor.data, form.Kp.data, form.Ki.data,
+                                               form.Kd.data, form.testField.data)
+        return render_template('pidQualityMeasure.html', form=form, plot=bar, errorAbsSum=errorAbsSum)
+
+    return render_template('pidQualityMeasure.html', form=form)
+
+
 def simulateQulityPid(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float,
                       outputFactor: float,
-                      Kp: float, Ki: float, Kd: float):
+                      Kp: float, Ki: float, Kd: float, value: int):
     n = math.ceil(time / step)
     results = [startLevel]
     inputs = [0.0]
@@ -85,11 +111,21 @@ def simulateQulityPid(time: float, step: float, startLevel: float, givenLevel: f
     pid = PID(Kp, Ki, Kd)
     pid.setPoint(givenLevel)
     errorAbsSum = 0
+    inputIntensity = 0
 
     for i in range(1, n):
         currentH = results[i - 1]
+        if value == '1':
+            inputIntensity = max(pid.wskaznikJakosci(currentH, i * step, 1), 0)
+        elif value == '2':
+            inputIntensity = max(pid.wskaznikJakosci(currentH, i * step, 2), 0)
+        elif value == '3':
+            inputIntensity = max(pid.wskaznikJakosci(currentH, i * step, 3), 0)
+        elif value == '4':
+            inputIntensity = max(pid.wskaznikJakosci(currentH, i * step, 4), 0)
+        elif value == '5':
+            inputIntensity = max(pid.wskaznikJakosci(currentH, i * step, 5), 0)
 
-        inputIntensity = max(pid.update(currentH, i * step), 0)
         errorAbsSum += abs(givenLevel - currentH) * step
 
         inputVolume = inputIntensity * step
@@ -101,16 +137,6 @@ def simulateQulityPid(time: float, step: float, startLevel: float, givenLevel: f
         steps.append(i * step)
 
     return getGraph(givenLevel, results, steps, inputs), errorAbsSum
-
-
-def getInputIntensity(last_intensity, target_intensity, maxChangeForSecond, max_intensity, step):
-    change = target_intensity - last_intensity
-    if maxChangeForSecond * step < abs(change):
-        intensity = last_intensity + (np.sign(change) * (maxChangeForSecond * step))
-    else:
-        intensity = target_intensity
-
-    return max(min(max_intensity, intensity),0)
 
 
 def simulateFuzzyPid(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float,
@@ -168,7 +194,7 @@ def getGraph(givenLevel, results, steps, inputs):
             y=df_inputs['y'],
             mode='lines',
             name='Wartości sterowania',
-            # visible=False,
+            visible=False,
             showlegend=True
         )
     ]
@@ -176,18 +202,6 @@ def getGraph(givenLevel, results, steps, inputs):
     return graphJSON
 
 
-@frontend.route('/quality_pid/', methods=('GET', 'POST'))
-def quality_pid():
-    form = QualityOptimizationPid()
-
-    if form.validate_on_submit():
-        (bar, errorAbsSum) = simulateQulityPid(form.time.data, form.step.data, form.start_level.data,
-                                               form.given_level.data,
-                                               form.tank_area.data, form.outputFactor.data, form.Kp.data, form.Ki.data,
-                                               form.Kd.data)
-        return render_template('pidQualityMeasure.html', form=form, plot=bar, errorAbsSum=errorAbsSum)
-
-    return render_template('pidQualityMeasure.html', form=form)
 
 
 @frontend.route('/fuzzy_pid/', methods=('GET', 'POST'))
