@@ -41,6 +41,33 @@ def classic_pid():
     return render_template('normalPid.html', form=form)
 
 
+@frontend.route('/fuzzy_pid/', methods=('GET', 'POST'))
+def fuzzy_pid():
+    form = FuzzyController()
+
+    if form.validate_on_submit():
+        (bar, errorAbsSum) = simulateFuzzyPid(form.time.data, form.step.data, form.start_level.data,
+                                              form.given_level.data,
+                                              form.tank_area.data, form.outputFactor.data)
+        return render_template('fuzzyPid.html', form=form, plot=bar, errorAbsSum=errorAbsSum)
+
+    return render_template('fuzzyPid.html', form=form)
+
+
+@frontend.route('/quality_pid/', methods=('GET', 'POST'))
+def quality_pid():
+    form = QualityOptimizationPid()
+
+    if form.validate_on_submit():
+        (bar, quality) = simulateQulityPid(form.time.data, form.step.data, form.start_level.data,
+                                               form.given_level.data,
+                                               form.tank_area.data, form.outputFactor.data, form.Kp.data, form.Ki.data,
+                                               form.Kd.data)
+        return render_template('pidQualityMeasure.html', form=form, plot=bar, quality=quality)
+
+    return render_template('pidQualityMeasure.html', form=form)
+
+
 def simulatePid(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float, outputFactor: float,
                 Kp: float, Ki: float, Kd: float):
     n = math.ceil(time / step)
@@ -82,61 +109,50 @@ def getInputIntensity(last_intensity, target_intensity, maxChangeForSecond, max_
     else:
         intensity = target_intensity
 
-    return max(min(max_intensity, intensity),0)
-
-
-@frontend.route('/quality_pid/', methods=('GET', 'POST'))
-def quality_pid():
-    form = QualityOptimizationPid()
-
-
-    if form.validate_on_submit():
-
-        (bar, errorAbsSum) = simulateQulityPid(form.time.data, form.step.data, form.start_level.data,
-                                               form.given_level.data,
-                                               form.tank_area.data, form.outputFactor.data, form.Kp.data, form.Ki.data,
-                                               form.Kd.data, form.testField.data)
-        return render_template('pidQualityMeasure.html', form=form, plot=bar, errorAbsSum=errorAbsSum)
-
-    return render_template('pidQualityMeasure.html', form=form)
+    return max(min(max_intensity, intensity), 0)
 
 
 def simulateQulityPid(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float,
                       outputFactor: float,
-                      Kp: float, Ki: float, Kd: float, value: int):
+                      Kp: float, Ki: float, Kd: float):
     n = math.ceil(time / step)
     results = [startLevel]
     inputs = [0.0]
     steps = [0]
     pid = PID(Kp, Ki, Kd)
     pid.setPoint(givenLevel)
-    errorAbsSum = 0
-    inputIntensity = 0
+
+    IAE = 0
+    ISE = 0
+    ITAE = 0
+    ITSE = 0
+
+    last_intensity = 0
+    maxIntensity = outputFactor * math.sqrt(givenLevel) * 5
+    maxChangeForSecond = 0.5 * maxIntensity
+    print(maxIntensity)
 
     for i in range(1, n):
         currentH = results[i - 1]
-        if value == '1':
-            inputIntensity = max(pid.wskaznikJakosci(currentH, i * step, 1), 0)
-        elif value == '2':
-            inputIntensity = max(pid.wskaznikJakosci(currentH, i * step, 2), 0)
-        elif value == '3':
-            inputIntensity = max(pid.wskaznikJakosci(currentH, i * step, 3), 0)
-        elif value == '4':
-            inputIntensity = max(pid.wskaznikJakosci(currentH, i * step, 4), 0)
-        elif value == '5':
-            inputIntensity = max(pid.wskaznikJakosci(currentH, i * step, 5), 0)
 
-        errorAbsSum += abs(givenLevel - currentH) * step
+        error = givenLevel - currentH
+        IAE = abs(error) * step  # IAE
+        ISE = pow(error, 2) * step  # ISE
+        ITAE = time * abs(error) * step  # ITAE
+        ITSE = time * pow(error, 2) * step  # ITSE
 
-        inputVolume = inputIntensity * step
+        target_intensity = max(pid.update(currentH, i * step), 0)
+
+        last_intensity = getInputIntensity(last_intensity, target_intensity, maxChangeForSecond, maxIntensity, step)
+        inputVolume = last_intensity * step
+
         outputVolume = outputFactor * math.sqrt(currentH) * step
         heightChange = (inputVolume - outputVolume) / surfaceArea
 
-        inputs.append(inputIntensity)
+        inputs.append(last_intensity)
         results.append(max(currentH + heightChange, 0))
         steps.append(i * step)
-
-    return getGraph(givenLevel, results, steps, inputs), errorAbsSum
+    return getGraph(givenLevel, results, steps, inputs), (IAE, ISE, ITAE, ITSE)
 
 
 def simulateFuzzyPid(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float,
@@ -149,7 +165,7 @@ def simulateFuzzyPid(time: float, step: float, startLevel: float, givenLevel: fl
     errorAbsSum = 0
     last_intensity = 0
     maxIntensity = outputFactor * math.sqrt(givenLevel) * 3
-    maxChangeForSecond =0.2 * maxIntensity
+    maxChangeForSecond = 0.2 * maxIntensity
     print(maxIntensity)
 
     for i in range(1, n):
@@ -165,7 +181,7 @@ def simulateFuzzyPid(time: float, step: float, startLevel: float, givenLevel: fl
         outputVolume = outputFactor * math.sqrt(currentH) * step
         heightChange = (inputVolume - outputVolume) / surfaceArea
 
-        inputs.append(last_intensity/maxIntensity*100)
+        inputs.append(last_intensity / maxIntensity * 100)
         results.append(max(currentH + heightChange, 0))
         steps.append(i * step)
 
@@ -200,18 +216,3 @@ def getGraph(givenLevel, results, steps, inputs):
     ]
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
-
-
-
-
-@frontend.route('/fuzzy_pid/', methods=('GET', 'POST'))
-def fuzzy_pid():
-    form = FuzzyController()
-
-    if form.validate_on_submit():
-        (bar, errorAbsSum) = simulateFuzzyPid(form.time.data, form.step.data, form.start_level.data,
-                                              form.given_level.data,
-                                              form.tank_area.data, form.outputFactor.data)
-        return render_template('fuzzyPid.html', form=form, plot=bar, errorAbsSum=errorAbsSum)
-
-    return render_template('fuzzyPid.html', form=form)
