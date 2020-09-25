@@ -117,7 +117,7 @@ def simulateQulityPid(time: float, step: float, startLevel: float, givenLevel: f
                       Kp: float, Ki: float, Kd: float, minK=1, maxK=10000, steps=100, value=1):
     n = math.ceil(time / step)
     qualities = ([], [], [], [])
-    Kps = range(minK, maxK, math.ceil((maxK - minK) / steps))
+    Kps = range(math.ceil(minK), math.ceil(maxK), math.ceil((maxK - minK) / steps))
     for K in Kps:
         results = [startLevel]
         inputs = [0.0]
