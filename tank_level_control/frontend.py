@@ -117,16 +117,16 @@ def simulateQulityPid(time: float, step: float, startLevel: float, givenLevel: f
                       Kp: float, Ki: float, Kd: float, minK=1, maxK=10000, steps=100, value=1):
     n = math.ceil(time / step)
     qualities = ([], [], [], [])
-    Kps = range(1, 100, math.ceil((maxK - minK) / steps))
+    Kps = range(minK, maxK, math.ceil((maxK - minK) / steps))
     for K in Kps:
         results = [startLevel]
         inputs = [0.0]
         pid = PID(K, Ki, Kd)
-        if value == 1:
+        if value == '1':
             pid = PID(K, Ki, Kd)
-        if value == 2:
+        if value == '2':
             pid = PID(Kp, K, Kd)
-        if value == 3:
+        if value == '3':
             pid = PID(Kp, Ki, K)
 
         pid.setPoint(givenLevel)

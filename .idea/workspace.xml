@@ -342,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601053038002</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Przerobka quality">
+      <created>1601053389351</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1601053389351</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,10 +471,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="670" y="217" key="VCS.ChangeListViewerDialog/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1601049840147" />
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1601052818101">
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1601053422438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1601052818101" />
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1601053422438" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1601053040742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
