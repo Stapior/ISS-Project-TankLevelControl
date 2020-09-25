@@ -32,6 +32,15 @@ class QualityOptimizationPid(FlaskForm):
         u'Współczynnik wypływu cieczy',
         validators=[DataRequired(), NumberRange(0)], default=80,
         description='Objętość cieczy wylatującej w 1s przy wysokości słupa cieczy 1')
+
+    choices = [(1, 'Kp'), (2, 'Ki'),  (3, 'Kd')]
+    testField = SelectField(u'Zmieniany parametr', choices=choices, validators=[])
+
+    minK = FloatField(u'Wartość od', validators=[DataRequired(), NumberRange(0)], default=1)
+    maxK = FloatField(u'wartość do', validators=[DataRequired(), NumberRange(0)], default=10000)
+    steps = FloatField(u'Liczba kroków', validators=[DataRequired(), NumberRange(0)], default=100)
+
+
     Kp = FloatField(u'Kp', validators=[], default=1000)
     Ki = FloatField(u'Ki', validators=[], default=2)
     Kd = FloatField(u'Kd', validators=[], default=1)

@@ -59,11 +59,11 @@ def quality_pid():
     form = QualityOptimizationPid()
 
     if form.validate_on_submit():
-        (bar, quality) = simulateQulityPid(form.time.data, form.step.data, form.start_level.data,
-                                               form.given_level.data,
-                                               form.tank_area.data, form.outputFactor.data, form.Kp.data, form.Ki.data,
-                                               form.Kd.data)
-        return render_template('pidQualityMeasure.html', form=form, plot=bar, quality=quality)
+        bar = simulateQulityPid(form.time.data, form.step.data, form.start_level.data,
+                                form.given_level.data,
+                                form.tank_area.data, form.outputFactor.data, form.Kp.data, form.Ki.data,
+                                form.Kd.data, form.minK.data, form.maxK.data, form.steps.data, form.testField.data)
+        return render_template('pidQualityMeasure.html', form=form, plot=bar)
 
     return render_template('pidQualityMeasure.html', form=form)
 
@@ -114,45 +114,90 @@ def getInputIntensity(last_intensity, target_intensity, maxChangeForSecond, max_
 
 def simulateQulityPid(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float,
                       outputFactor: float,
-                      Kp: float, Ki: float, Kd: float):
+                      Kp: float, Ki: float, Kd: float, minK=1, maxK=10000, steps=100, value=1):
     n = math.ceil(time / step)
-    results = [startLevel]
-    inputs = [0.0]
-    steps = [0]
-    pid = PID(Kp, Ki, Kd)
-    pid.setPoint(givenLevel)
+    qualities = ([], [], [], [])
+    Kps = range(1, 100, math.ceil((maxK - minK) / steps))
+    for K in Kps:
+        results = [startLevel]
+        inputs = [0.0]
+        if value == 1:
+            pid = PID(K, Ki, Kd)
+        if value == 2:
+            pid = PID(Kp, K, Kd)
+        if value == 3:
+            pid = PID(Kp, Ki, K)
 
-    IAE = 0
-    ISE = 0
-    ITAE = 0
-    ITSE = 0
+        pid.setPoint(givenLevel)
 
-    last_intensity = 0
-    maxIntensity = outputFactor * math.sqrt(givenLevel) * 5
-    maxChangeForSecond = 0.5 * maxIntensity
-    print(maxIntensity)
+        IAE = 0
+        ISE = 0
+        ITAE = 0
+        ITSE = 0
 
-    for i in range(1, n):
-        currentH = results[i - 1]
+        last_intensity = 0
+        maxIntensity = outputFactor * math.sqrt(givenLevel) * 5
+        maxChangeForSecond = 0.5 * maxIntensity
+        print(maxIntensity)
 
-        error = givenLevel - currentH
-        IAE = abs(error) * step  # IAE
-        ISE = pow(error, 2) * step  # ISE
-        ITAE = time * abs(error) * step  # ITAE
-        ITSE = time * pow(error, 2) * step  # ITSE
+        for i in range(1, n):
+            currentH = results[i - 1]
 
-        target_intensity = max(pid.update(currentH, i * step), 0)
+            error = givenLevel - currentH
 
-        last_intensity = getInputIntensity(last_intensity, target_intensity, maxChangeForSecond, maxIntensity, step)
-        inputVolume = last_intensity * step
+            IAE += abs(error) * step  # IAE
+            ISE += pow(error, 2) * step  # ISE
+            ITAE += time * abs(error) * step  # ITAE
+            ITSE += time * pow(error, 2) * step  # ITSE
 
-        outputVolume = outputFactor * math.sqrt(currentH) * step
-        heightChange = (inputVolume - outputVolume) / surfaceArea
+            target_intensity = max(pid.update(currentH, i * step), 0)
 
-        inputs.append(last_intensity)
-        results.append(max(currentH + heightChange, 0))
-        steps.append(i * step)
-    return getGraph(givenLevel, results, steps, inputs), (IAE, ISE, ITAE, ITSE)
+            last_intensity = getInputIntensity(last_intensity, target_intensity, maxChangeForSecond, maxIntensity, step)
+            inputVolume = last_intensity * step
+
+            outputVolume = outputFactor * math.sqrt(currentH) * step
+            heightChange = (inputVolume - outputVolume) / surfaceArea
+
+            inputs.append(last_intensity)
+            results.append(max(currentH + heightChange, 0))
+        qualities[0].append(IAE)
+        qualities[1].append(ISE)
+        qualities[2].append(ITAE)
+        qualities[3].append(ITSE)
+
+    df_IAE = pd.DataFrame({'x': Kps, 'y': qualities[0]})
+    df_ISE = pd.DataFrame({'x': Kps, 'y': qualities[1]})
+    df_ITAE = pd.DataFrame({'x': Kps, 'y': qualities[2]})
+    df_ITSE = pd.DataFrame({'x': Kps, 'y': qualities[3]})
+    data = [
+        go.Scatter(
+            x=df_IAE['x'],
+            y=df_IAE['y'],
+            mode='lines',
+            name='IAE'
+        ),
+        go.Scatter(
+            x=df_ISE['x'],
+            y=df_ISE['y'],
+            mode='lines',
+            name='ISE'
+        ),
+        go.Scatter(
+            x=df_ITAE['x'],
+            y=df_ITAE['y'],
+            mode='lines',
+            name='ITAE'
+        ),
+        go.Scatter(
+            x=df_ITSE['x'],
+            y=df_ITSE['y'],
+            mode='lines',
+            name='ITSE'
+        ),
+
+    ]
+    graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON
 
 
 def simulateFuzzyPid(time: float, step: float, startLevel: float, givenLevel: float, surfaceArea: float,

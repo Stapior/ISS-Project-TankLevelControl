@@ -22,9 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ddbf2546-313c-4f4a-99f8-3c24b6c8d399" name="Default Changelist" comment="Dodanie opisow">
+    <list default="true" id="ddbf2546-313c-4f4a-99f8-3c24b6c8d399" name="Default Changelist" comment="Przerobka quality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tank_level_control/PID.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/PID.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tank_level_control/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tank_level_control/frontend.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/frontend.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tank_level_control/templates/pidQualityMeasure.html" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/templates/pidQualityMeasure.html" afterDir="false" />
@@ -208,6 +207,21 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <configuration name="Flask (tank_level_control/__init__.py)" type="Python.FlaskServer" nameIsGenerated="true">
+      <module name="ISS-Project-TankLevelControl" />
+      <option name="target" value="$PROJECT_DIR$/tank_level_control/__init__.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="Flask" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
       <module name="ISS-Project-TankLevelControl" />
       <option name="target" value="$PROJECT_DIR$/tank_level_control/runDev.py" />
@@ -316,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601049866139</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Przerobka quality">
+      <created>1601051376468</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601051376468</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +361,8 @@
     <MESSAGE value="Poprawki PID" />
     <MESSAGE value="Dodanie dzielenia przez powierzchnie" />
     <MESSAGE value="Dodanie opisow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodanie opisow" />
+    <MESSAGE value="Przerobka quality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Przerobka quality" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="198" key="#Inspections" timestamp="1600281338253">
@@ -437,11 +459,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="670" y="217" key="VCS.ChangeListViewerDialog/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1601049840147" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1601049869518">
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1601052818101">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1601052818101" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1601051379015">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599071619202" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1601049869518" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1601051379015" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601049142025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
