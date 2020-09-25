@@ -22,12 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ddbf2546-313c-4f4a-99f8-3c24b6c8d399" name="Default Changelist" comment="Dodanie dzielenia przez powierzchnie">
+    <list default="true" id="ddbf2546-313c-4f4a-99f8-3c24b6c8d399" name="Default Changelist" comment="Poprawki itp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tank_level_control/Fuzzy.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/Fuzzy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tank_level_control/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tank_level_control/frontend.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/frontend.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tank_level_control/templates/fuzzyPid.html" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/templates/fuzzyPid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tank_level_control/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tank_level_control/templates/normalPid.html" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/templates/normalPid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tank_level_control/templates/pidQualityMeasure.html" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/templates/pidQualityMeasure.html" afterDir="false" />
     </list>
+    <list id="63b450fe-d956-41d4-ab8d-faba585674a1" name="DontComit" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -235,11 +237,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Flask server.Flask (tank_level_control/__init__.py) (1)" />
-      <item itemvalue="Flask server.Flask" />
-      <item itemvalue="Flask server.Flask (tank_level_control/__init__.py)" />
       <item itemvalue="JavaScript Debug.localhost:5000" />
       <item itemvalue="Python.Fuzzy" />
+      <item itemvalue="Flask server.Flask (tank_level_control/__init__.py) (1)" />
+      <item itemvalue="Flask server.Flask (tank_level_control/__init__.py)" />
+      <item itemvalue="Flask server.Flask" />
     </list>
     <recent_temporary>
       <list>
@@ -428,11 +430,11 @@
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599071619202" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1600767591343" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600873788111">
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601049142025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1600281133774" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1600873788111" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1601049142025" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1600456687691" />
     <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1600788415962">
       <screen x="0" y="0" width="1920" height="1040" />

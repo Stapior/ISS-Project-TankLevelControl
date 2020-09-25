@@ -4,7 +4,7 @@
 
 
 {% block content %}
-    <div class="container">
+    <h2>Regulator rozmyty Mamdaniego typu PI</h2>
     <div class="col-md-4">
         {{ wtf.quick_form(form) }}
     </div>
@@ -17,7 +17,7 @@
                 </script>
             </div>
             <div>
-               Całka z bezwględnej wartości sygnału uchybu: {{ errorAbsSum }}
+                Całka z bezwględnej wartości sygnału uchybu: {{ errorAbsSum }}
             </div>
         </div>
     {%- else %}
