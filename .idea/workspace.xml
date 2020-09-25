@@ -24,9 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ddbf2546-313c-4f4a-99f8-3c24b6c8d399" name="Default Changelist" comment="Przerobka quality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tank_level_control/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tank_level_control/frontend.py" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/frontend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tank_level_control/templates/pidQualityMeasure.html" beforeDir="false" afterPath="$PROJECT_DIR$/tank_level_control/templates/pidQualityMeasure.html" afterDir="false" />
     </list>
     <list id="63b450fe-d956-41d4-ab8d-faba585674a1" name="DontComit" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="quality" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -337,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601051376468</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Przerobka quality">
+      <created>1601053038001</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1601053038002</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,11 +468,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1601052818101" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1601051379015">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1601053040742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.0.1360.728@0.0.1920.1040" timestamp="1599071619202" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1601051379015" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1601053040742" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601049142025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

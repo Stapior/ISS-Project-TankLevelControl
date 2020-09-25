@@ -121,6 +121,7 @@ def simulateQulityPid(time: float, step: float, startLevel: float, givenLevel: f
     for K in Kps:
         results = [startLevel]
         inputs = [0.0]
+        pid = PID(K, Ki, Kd)
         if value == 1:
             pid = PID(K, Ki, Kd)
         if value == 2:
